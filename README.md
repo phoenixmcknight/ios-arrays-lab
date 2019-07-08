@@ -7,6 +7,17 @@ Fork and clone this repo. On your fork, answer and commit the follow questions. 
 Create an array of strings called `colors` that contain "orange", "red", "yellow", "turquoise", and "lavender".
 
 Then, using array subscripting and string interpolation, print out the String `"orange, yellow, and lavender are some of my favorite colors"`.
+var colors = "orange, red, yellow, turquoise, and lavender"
+var emptyColors = ""
+var colorsep = colors.components(separatedBy: ",")
+for i in colorsep where i != " red" {
+if i != " turquoise" {
+emptyColors += String(i) + ","
+
+}
+}
+print("\(emptyColors) are my favorite colors.")
+
 
 
 ## Question 2
@@ -15,6 +26,11 @@ Remove "Illinois" and "Kansas" from the array below.
 
 `var westernStates = ["California", "Oregon", "Washington", "Idaho", "Illinois", "Kansas"]`
 
+var westernStates = ["California", "Oregon", "Washington", "Idaho", "Illinois", "Kansas"]
+var pop1 = westernStates.popLast()
+var pop2 = westernStates.popLast()
+print(westernStates)
+
 
 ## Question 3
 
@@ -22,16 +38,36 @@ Iterate through the array below. For each state, print out the name of the state
 
 `let moreStates = ["Hawaii", "New Mexico", "Alaska", "Montana", "Texas", "New York", "Florida"]`
 
-
+let moreStates = ["Hawaii", "New Mexico", "Alaska", "Montana", "Texas", "New York", "Florida"]
+for states in moreStates {
+if states == "Hawaii" {
+print("[\(states)] : is not in the continental United States")
+} else if states == "Alaska" {
+print("[\(states)] : is not in the continental United States")
+} else {
+print("[\(states)] : is part of the continental United States")
+}
+}
 ## Question 4
 
 Print out how many non-whitespace characters are in `myString`:
 
 `let myString = "This is good practice with Strings!"`
 
+var emptyString = ""
+let myString = "This is good practice with Strings!"
+
+for whiteSpace in myString where whiteSpace == " " {
+emptyString += String(whiteSpace)
+}
+print(myString.count - emptyString.count)
+
+
+
 Iterate through the array below. For each sentence, print out how many non-whitespace characters are in it.
 
 `let myFavoriteQuotes = ["To be or not to be, that is the question.", "The only source of knowledge is experience.", "Mr. Gorbachev, tear down this wall!", "Four score and twenty years ago..."]`
+
 
 
 ## Question 5
@@ -42,6 +78,28 @@ Iterate through `garden` and place any 🌷 that you find into the `basket`. Rep
 var garden = ["dirt","🌷","dirt","🌷","dirt","dirt","🌷","dirt","🌷","dirt"]
 var basket = [String]()
 ```
+var flowers = 0
+var dirt = 0
+var garden = ["dirt","🌷","dirt","🌷","dirt","dirt","🌷","dirt","🌷","dirt"]
+var basket = [String]()
+
+for flower in garden  {
+if flower == "🌷"{
+flowers += flower.count
+}
+}
+basket = [String(flowers)]
+print(basket)
+
+var basket = [String]()
+for flower in garden  {
+if flower == "🌷"{
+flowers += flower.count
+}
+}
+basket = [String(flowers)]
+print(basket)
+
 
 ## Question 6
 
@@ -53,6 +111,16 @@ The below array represents an unfinished batting lineup for a baseball team. **Y
 - Put "Reyes" to bat 8th instead.
 
 `var battingLineup = ["Reyes", "Jeter", "Ramirez", "Pujols","Griffey","Thomas","Jones", "Rodriguez"]`
+
+var battingLineup = ["Reyes", "Jeter", "Ramirez", "Pujols","Griffey","Thomas","Jones", "Rodriguez"]
+battingLineup.append("Suzuki")
+battingLineup.remove(at: 1)
+battingLineup.insert("Tejada", at: 1)
+battingLineup.remove(at: 5)
+battingLineup.insert("Guerrero", at: 5)
+battingLineup.insert("Reyes", at: 8)
+battingLineup.remove(at: 0)
+print(battingLineup)
 
 
 ## Question 7
@@ -78,6 +146,7 @@ target = 32
 //true
 ```
 
+
 Ex. 2
 
 ```swift
@@ -87,6 +156,17 @@ target = 3
 
 //false
 ```
+let numbers = [4,2,6,73,32,4,2,1]
+
+let target = 32
+var isTargetTrue = 0
+for i in numbers  {
+if i == target {
+isTargetTrue = 1
+
+}
+}
+print(isTargetTrue > 0)
 
 
 ## Question 8
@@ -98,7 +178,10 @@ let arrayOfNumbers: [Int] = (1...100).map{ _ in Int.random(in: 0...200)}.map{Int
 
 //This creates an array of 100 numbers in between 0 and 200.  For now, you don't need to worry about how it does that.
 ```
+let arrayOfNumbers: [Int] = (1...100).map{ _ in Int.random(in: 0...200)}.map{Int($0)}
 
+var findTheBiggestNumber = arrayOfNumbers.sorted()
+print(findTheBiggestNumber[99])
 
 ## Question 9
 
@@ -109,7 +192,8 @@ let arrayOfNumbers: [Int] = (1...100).map{ _ in Int.random(in: 0...200)}.map{Int
 
 //This creates an array of 100 numbers in between 0 and 200.  For now, you don't need to worry about how it does that.
 ```
-
+var findTheSmallestNumber = arrayOfNumbers.sorted()
+print(findTheSmallestNumber[0])
 
 ## Question 10
 
@@ -117,6 +201,10 @@ Iterate through `secondListOfNumbers`, and print out all the odd numbers.
 
 `var secondListOfNumbers = [19,13,14,19,101,10000,141,404]`
 
+var secondListOfNumbers = [19,13,14,19,101,10000,141,404]
+for i in secondListOfNumbers where i % 2 != 0 {
+print(i)
+}
 
 ## Question 11
 
@@ -124,12 +212,25 @@ Iterate through `thirdListOfNumbers`, and print out the sum.
 
 `var thirdListOfNumbers = [11, 26, 49, 61, 25, 40, 74, 3, 22, 23]`
 
+var thirdListOfNumbers = [11, 26, 49, 61, 25, 40, 74, 3, 22, 23]
+var sum = 0
+for i in thirdListOfNumbers {
+sum += i
+}
+print(sum)
 
 ## Question 12
 
 Iterate through `thirdListOfNumbers`, and print out the sum of all the even numbers.
 
 `var thirdListOfNumbers = [11, 26, 49, 61, 25, 40, 74, 3, 22, 23]`
+
+var thirdListOfNumbers = [11, 26, 49, 61, 25, 40, 74, 3, 22, 23]
+var sum = 0
+for i in thirdListOfNumbers where i % 2 == 0 {
+sum += i
+}
+print(sum)
 
 
 ## Question 13
@@ -141,7 +242,27 @@ var listOne = [28, 64, 7, 96, 13, 32, 94, 11, 80, 68]
 var listTwo = [18, 94, 48, 6, 42, 68, 79, 76, 13, 7]
 var sharedElements = [Int]()
 ```
+var listOne = [28, 64, 7, 96, 13, 32, 94, 11, 80, 68]
+var listTwo = [18, 94, 48, 6, 42, 68, 79, 76, 13, 7]
+var sharedElements = [Int]()
 
+for num in listOne {
+if listTwo.contains(num) == true {
+sharedElements.append(num)
+}
+}
+print(sharedElements.count)
+
+or 
+
+for i in listOne {
+for j in listTwo {
+if i == j {
+sharedElements.append(i)
+}
+}
+}
+print(sharedElements.count)
 
 ## Question 14
 
@@ -151,12 +272,25 @@ Write code such that `noDupeList` has all the same Ints as `dupeFriendlyList`, b
 var dupeFriendlyList = [4,2,6,2,2,6,4,9,2,1]
 var noDupeList: [Int] = []
 ```
+var dupeFriendlyList = [4,2,6,2,2,6,4,9,2,1]
+
+var noDupeList: [Int] = []
+for (value) in dupeFriendlyList where noDupeList.contains(value) != true {
+noDupeList.append(value)
+}
+print(noDupeList)
+
 
 ## Question 15
 
 Find the second smallest number in an Array of Ints
 
 `let arrayOfNumbers: [Int] = (1...100).map{ _ in Int.random(in: 0...200)}.map{Int($0)}`
+
+let arrayOfNumbers: [Int] = (1...100).map{ _ in Int.random(in: 0...200)}.map{Int($0)}
+
+var sorted = arrayOfNumbers.sorted()[1]
+print(sorted)
 
 
 ## Question 16
@@ -165,6 +299,13 @@ If we list all the natural numbers below 10 that are multiples of 3 or 5, we get
 
 Find the sum of all the multiples of 3 or 5 below 1000.
 
+var sum = 0
+for i in 1..<1000 {
+if i % 3 == 0 && i % 5 == 0  {
+sum += i
+}
+}
+print(sum)
 
 ## Question 17
 
@@ -181,6 +322,17 @@ Identify if there are 3 integers that sum to 10 in the following array. If so, p
 
 `var tripleSumArr = [-20,-14, -8,-5,-3,-2,1,2,3,4,9,15,20,30]`
 
+var tripleSumArr = [-20,-14, -8,-5,-3,-2,1,2,3,4,9,15,20,30]
+
+for i in 0...tripleSumArr.count - 3{
+for j in 0...tripleSumArr.count - 2{
+for k in 0...tripleSumArr.count - 1{
+if tripleSumArr[i] + tripleSumArr[j] +  tripleSumArr[k] == 10 {
+print("\(tripleSumArr[i]) , \(tripleSumArr[j]) , \(tripleSumArr[k])")
+}
+}
+}
+}
 
 ## Question 19
 
